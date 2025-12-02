@@ -16,10 +16,27 @@
     <Filter Include="Player">
       <UniqueIdentifier>{f794f1fc-8874-4e2c-ae11-9e32bd190eab}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Asset">
+      <UniqueIdentifier>{6c6a12c8-f6e7-4795-a4fd-7e9d7914e287}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="External">
+      <UniqueIdentifier>{7a5d857f-0495-4710-b60c-5ccb6a66f15e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CLI_RPG.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Programs\Player.h">
+      <Filter>Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Asset\Asset.h">
+      <Filter>Asset</Filter>
+    </ClInclude>
+    <ClInclude Include="External\External.h">
+      <Filter>External</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -129,6 +129,11 @@
   <ItemGroup>
     <ClCompile Include="CLI_RPG.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Asset\Asset.h" />
+    <ClInclude Include="External\External.h" />
+    <ClInclude Include="Programs\Player.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
