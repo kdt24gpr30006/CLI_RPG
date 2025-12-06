@@ -4,6 +4,7 @@ void SceneManager::Update()
 {
     if (nextScene) {
         currentScene = std::move(nextScene);
+        currentScene->Init();   // ˆê‰ž•K—v‚É‚È‚Á‚½‚Æ‚«—p‚ÌInit()
     }
 
     if (currentScene) {
