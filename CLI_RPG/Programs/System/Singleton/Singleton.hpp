@@ -1,4 +1,8 @@
 #pragma once
+// シングルトンの使用の際は継承して使用してください。
+// class A : public Singleton<A> {
+//     friend class Singleton<A>;
+// }:
 
 template <typename T>
 // 継承して使えるSingletonヘッダー
