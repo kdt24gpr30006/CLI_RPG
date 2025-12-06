@@ -1,0 +1,22 @@
+バトルターンの管理の仕方
+ターンはプレイヤーとエネミーを分ける
+enum class BattleState { playerTurn, EnemyTurn, Win, Lose};
+
+バトルマネージャーで管理する
+class BattleManager {
+    プレイヤーとエネミーを持つ
+    Player* player;
+    Enemy* enemy;
+    BattleState state;
+
+public:
+    void Init(Player* p, Enemy* e);
+    
+    コマンド
+    void ExecuteCommand_Attack();
+    void ExecuteCommand_Magic();
+    void ExecuteCommand_Item();
+    
+    void Update(); 敵のターン処理など
+    void Render(); 戦闘画面の描画
+};
