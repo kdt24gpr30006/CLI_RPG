@@ -1,3 +1,44 @@
+軽いクラス設計
+System
+    Main
+    SceneManager[Singleton]
+データ管理
+    GameData[Singleton]
+キャラクター
+    CharaBase
+        id,name,level,hp,maxhp,atk,def
+        TakeDamage(),IsDead(),Heal()
+    Player:CharaBase
+        階層ここに持つ？データで持つ？さてどうしましょう
+    Enemy:CharaBase
+        expValue 経験値
+シーン構成
+    Scene
+    Title
+    DungeonScene    移動パート結局なしでいいの
+    BattleScene     バトルシーン
+    ResultScene
+
+[Main Loop]
+    │
+    ▼
+[SceneManager] (Singleton) ─────────────┐
+    │                                   │
+    │ 管理                              │ 参照 (座標更新/HP増減)
+    ▼                                   ▼
+[Current Scene]                 [GameData] (Singleton)
+    │                                   │ 保持
+    │                                   ▼
+    │                           [Player] (Instance)
+    │                                   │ 継承
+    │                           [Actor] (Base)
+    │                                   ▲
+    │ (Generate/Own)                    │ 継承
+    ├──> [DungeonMap]           [Enemy] (Instance)
+    │           (DungeonSceneのみ)      │
+    │                                   │
+    └──> [Enemy] (BattleSceneのみ) ─────┘
+
 バトルターンの管理の仕方
 ターンはプレイヤーとエネミーを分ける
 enum class BattleState { playerTurn, EnemyTurn, Win, Lose};
