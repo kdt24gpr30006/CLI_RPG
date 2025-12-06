@@ -3,10 +3,10 @@
 
 class Scene {
 public:
-	Scene();
-	~Scene();
+	Scene() = default;
+	~Scene() = default;
 
-	virtual void Init();
-	virtual void Update();
-	virtual void Render();
+	virtual void Init() = 0;
+	virtual void Update() = 0;
+	virtual void Render() = 0;
 };
