@@ -1,0 +1,26 @@
+#pragma once
+// シングルトンの使用の際は継承して使用してください。
+// class A : public Singleton<A> {
+//     friend class Singleton<A>;
+// }:
+
+template <typename T>
+// 継承して使えるSingletonヘッダー
+class Singleton {
+public:
+    // インスタンスの取得
+    static T& Instance()
+    {
+        static T instance;
+        return instance;
+    }
+    // コピーコンストラクタと代入演算子を禁止
+    Singleton(const Singleton&) = delete;
+    Singleton& operator=(const Singleton&) = delete;
+    // ムーブも禁止
+    Singleton(Singleton&&) = delete;
+    Singleton& operator=(Singleton&&) = delete;
+protected:  // 継承先でも使えるようにprotected:
+    Singleton() = default;
+    virtual ~Singleton() = default;
+};
