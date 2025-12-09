@@ -127,12 +127,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Programs\System\Main\CLI_RPG.cpp" />
     <ClCompile Include="Programs\System\Scene\SceneManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Programs\System\Scene\Scene.hpp" />
-    <ClInclude Include="Programs\System\Singleton\Singleton.hpp" />
     <ClInclude Include="Programs\System\Scene\SceneManager.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
