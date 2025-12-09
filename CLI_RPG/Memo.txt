@@ -15,29 +15,22 @@ System
 シーン構成
     Scene
     Title
-    DungeonScene    移動パート結局なしでいいの
+    DungeonScene    移動シーン
     BattleScene     バトルシーン
     ResultScene
 
-[Main Loop]
-    │
-    ▼
-[SceneManager] (Singleton) ─────────────┐
-    │                                   │
-    │ 管理                              │ 参照 (座標更新/HP増減)
-    ▼                                   ▼
-[Current Scene]                 [GameData] (Singleton)
-    │                                   │ 保持
-    │                                   ▼
-    │                           [Player] (Instance)
-    │                                   │ 継承
-    │                           [Actor] (Base)
-    │                                   ▲
-    │ (Generate/Own)                    │ 継承
-    ├──> [DungeonMap]           [Enemy] (Instance)
-    │           (DungeonSceneのみ)      │
-    │                                   │
-    └──> [Enemy] (BattleSceneのみ) ─────┘
+DungeonSceneとBattleSceneはゲームシーンとして統一する
+それでゲーム内の共通データの管理を楽にする
+共通データはGameDataで管理する
+GameDataはプレイヤー情報(ステータス)、現在の階層、所持アイテム
+マップデータについてDungeonSceneで管理する
+マップデータはCSVなどで外部から読み込む形にして変更を楽にしときたい
+CSVでの管理
+マップデータ
+    タイル情報(壁、床、階段、敵スポーンポイント、宝箱（アイテムスポーンポイント）)
+敵データ(敵ID、出現率)
+アイテムデータ(アイテムID、出現率)
+
 
 バトルターンの管理の仕方
 ターンはプレイヤーとエネミーを分ける
