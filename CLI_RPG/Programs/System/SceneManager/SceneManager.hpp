@@ -13,6 +13,8 @@ private:
 	std::unique_ptr<Scene> currentScene;	// 現在のシーン
 	std::unique_ptr<Scene> nextScene;		// 次のシーン
 public:
+	SceneManager();
+	~SceneManager();
 	// シーンの変更
 	template <typename T, typename... Args>
 	void ChangeScene(Args&&... args) {

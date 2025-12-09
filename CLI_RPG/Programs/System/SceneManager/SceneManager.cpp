@@ -1,10 +1,20 @@
 #include "SceneManager.hpp"
+#include "../../Scene/TitleScene/TitleScene.hpp"
+
+SceneManager::SceneManager()
+{
+    // 最初はタイトル
+    currentScene = std::make_unique<TitleScene>();
+}
+
+SceneManager::~SceneManager()
+{
+}
 
 void SceneManager::Update()
 {
     if (nextScene) {
         currentScene = std::move(nextScene);
-        currentScene->Init();   // 一応必要になったとき用のInit()
     }
 
     if (currentScene) {
