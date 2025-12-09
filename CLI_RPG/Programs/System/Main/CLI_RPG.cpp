@@ -6,8 +6,11 @@
 #endif // _DEBUG
 
 #include <iostream>
+#include "../Scene/SceneManager.hpp"
 
-ENTRY_POINT 
+ENTRY_POINT
 {
-   std::cout << "Hello World!\n";
+	SceneManager::Instance().Update();
+	SceneManager::Instance().Render();
+	std::cout << "Hello World!\n";
 }
