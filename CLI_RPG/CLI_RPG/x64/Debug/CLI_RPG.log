@@ -1,11 +1,2 @@
-<<<<<<< HEAD
 ﻿  CLI_RPG.cpp
-  SceneManager.cpp
-  コードを生成中...
   CLI_RPG.vcxproj -> C:\Users\com\source\repos\CLI_RPG\CLI_RPG\x64\Debug\CLI_RPG.exe
-=======
-﻿  SceneManager.cpp
-\Programs\System\Scene\SceneManager.cpp(1,1): error C1083: ソース ファイルを開けません。'Programs\System\Scene\SceneManager.cpp':No such file or directory
-  (ソース ファイル '/Programs/System/Scene/SceneManager.cpp' をコンパイルしています)
-  
->>>>>>> d656614564700f763c55b548debab27db45d6baf
