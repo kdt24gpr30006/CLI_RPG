@@ -6,13 +6,13 @@
 #endif // _DEBUG
 
 #include <iostream>
-//#include "../SceneManager/SceneManager.hpp"
+#include "../SceneManager/SceneManager.hpp"
 
 ENTRY_POINT
 {
 	while (true) {
-		//SceneManager::Instance().Update();
-		//SceneManager::Instance().Render();
+		SceneManager::Instance().Update();
+		SceneManager::Instance().Render();
 	}
 	std::cout << "Hello World!\n";
 }
