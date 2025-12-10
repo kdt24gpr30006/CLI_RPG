@@ -5,6 +5,7 @@
 
 class DungeonMap {
 private:
+	// 各階層のマップデータの格納
     std::map<int, std::vector<std::vector<int>>> floors;
 
     int currentFloor = 1; // 現在の階層
@@ -14,8 +15,11 @@ private:
 public:
     DungeonMap();
 
+	// CSVファイルからマップデータを読み込む関数
     bool LoadFromCSV(const std::string& filename);
+	// マップ描画
     void Render() const;
+	// 指定した座標のタイルを取得
     int GetTile(int x, int y) const;
 
     // 階層を切り替える関数
