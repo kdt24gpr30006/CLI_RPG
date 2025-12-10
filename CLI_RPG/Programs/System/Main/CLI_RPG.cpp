@@ -7,10 +7,14 @@
 
 #include <iostream>
 #include "../SceneManager/SceneManager.hpp"
+#include "../Input/InputManager.hpp"
 
 ENTRY_POINT
 {
 	while (true) {
+		// キー入力の更新
+		InputManager::Instance().Update();
+		// シーンの更新と描画
 		SceneManager::Instance().Update();
 		SceneManager::Instance().Render();
 	}
