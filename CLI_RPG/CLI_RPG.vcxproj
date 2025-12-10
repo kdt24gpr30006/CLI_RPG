@@ -130,11 +130,13 @@
     <ClCompile Include="Programs\Scene\GameScene\GameScene.cpp" />
     <ClCompile Include="Programs\Scene\TitleScene\TitleScene.cpp" />
     <ClCompile Include="Programs\System\Main\CLI_RPG.cpp" />
+    <ClCompile Include="Programs\System\Map\DungeonMap.cpp" />
     <ClCompile Include="Programs\System\SceneManager\SceneManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Programs\Scene\GameScene\GameScene.hpp" />
     <ClInclude Include="Programs\Scene\TitleScene\TitleScene.hpp" />
+    <ClInclude Include="Programs\System\Map\DungeonMap.hpp" />
     <ClInclude Include="Programs\System\SceneManager\Scene.hpp" />
     <ClInclude Include="Programs\System\SceneManager\SceneManager.hpp" />
     <ClInclude Include="Programs\System\View\View.hpp" />
