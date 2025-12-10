@@ -1,21 +1,19 @@
 #include "GameScene.hpp"
 #include <iostream>
+#include "../../System/View/View.hpp"
 
-GameScene::GameScene()
-{
-	std::cout << "GameScene" << std::endl;
+GameScene::GameScene() {
+	Text::View::Instance().Text("GameScene", Text::Color::Green);
 	// マップ読み込み
 	dungeonMap = std::unique_ptr<DungeonMap>(new DungeonMap());
 	// ファイル読み込み
 	dungeonMap->LoadFromCSV("Assets/Data/Mapdata.csv");
 }
 
-GameScene::~GameScene()
-{
+GameScene::~GameScene() {
 }
 
-void GameScene::Update()
-{
+void GameScene::Update() {
 }
 
 void GameScene::Render()

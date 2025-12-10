@@ -10,8 +10,8 @@ enum class KeyCode : uint8_t {
 	O = 'O', P = 'P', Q = 'Q', R = 'R', S = 'S', T = 'T', U = 'U',
 	V = 'V', W = 'W', X = 'X', Y = 'Y', Z = 'Z',
 
-	Key0 = '0', Key1 = '1', Key2 = '2', Key3 = '3', Key4 = '4',
-	Key5 = '5', Key6 = '6', Key7 = '7', Key8 = '8', Key9 = '9',
+	Num0 = '0', Num1 = '1', Num2 = '2', Num3 = '3', Num4 = '4',
+	Num5 = '5', Num6 = '6', Num7 = '7', Num8 = '8', Num9 = '9',
 
 	Space = VK_SPACE,
 	Enter = VK_RETURN,
