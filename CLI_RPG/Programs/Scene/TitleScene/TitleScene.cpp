@@ -2,19 +2,18 @@
 #include <iostream>
 #include "../GameScene/GameScene.hpp"
 #include "../../System/SceneManager/SceneManager.hpp"
+#include "../../System/Input/InputManager.hpp"
 
 TitleScene::TitleScene() {
 	std::cout << "TitleScene" << std::endl;
+	std::cout << "スペースを押したらゲームシーンに移行" << std::endl;
 }
 
 TitleScene::~TitleScene() {
 }
 
 void TitleScene::Update() {
-	std::cout << "1を押したらゲームシーンに移行" << std::endl;
-	int input = -1;
-	std::cin >> input;
-	if (input == 1) {
+	if (InputManager::Instance().IsKeyDown(KeyCode::Space)) {
 		SceneManager::Instance().ChangeScene<GameScene>();
 	}
 }
