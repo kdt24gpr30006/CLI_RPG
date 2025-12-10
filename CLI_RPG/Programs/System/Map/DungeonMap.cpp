@@ -144,6 +144,13 @@ void DungeonMap::Render() const {
     }
 }
 
+void DungeonMap::SetTile(int x, int y, int tile) {
+	// 存在確認
+    if (floors.count(currentFloor) == 0) return;
+    if (x < 0 || x >= width || y < 0 || y >= height) return;
+    floors[currentFloor][y][x] = tile;
+}
+
 int DungeonMap::GetTile(int x, int y) const {
 	// 存在確認
     if (floors.count(currentFloor) == 0) return 1;
