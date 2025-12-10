@@ -4,3 +4,8 @@
 
 /.vs
 /CLI_RPG/.vs/CLI_RPG
+
+.vs/
+ConsoleA.*/
+x64/
+*/vcxproj.*
