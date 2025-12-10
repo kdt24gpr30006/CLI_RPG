@@ -3,9 +3,10 @@
 #include "../GameScene/GameScene.hpp"
 #include "../../System/SceneManager/SceneManager.hpp"
 #include "../../System/Input/InputManager.hpp"
+#include "../../System/View/View.hpp"
 
 TitleScene::TitleScene() {
-	std::cout << "TitleScene" << std::endl;
+	Text::View::Instance().Text("TitleScene", Text::Color::Green);
 	std::cout << "スペースを押したらゲームシーンに移行" << std::endl;
 }
 

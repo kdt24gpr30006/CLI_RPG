@@ -2,6 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include "../View/View.hpp"
 
 DungeonMap::DungeonMap() {
     width = 0;
@@ -16,7 +17,7 @@ bool DungeonMap::LoadFromCSV(const std::string& filename) {
 	// ファイルが開けなかったらエラーを表示します
     if (!file.is_open())
     {
-        std::cerr << "Error: ファイルが開けません -> " << filename << std::endl;
+        Text::View::Instance().Error("マップファイル " + filename + " を開けませんでした。");
         return false;
     }
 	// 既存データをクリア
@@ -56,6 +57,7 @@ bool DungeonMap::LoadFromCSV(const std::string& filename) {
             }
             else
             {
+                Text::View::Instance().Error("FLOOR指定に数字が含まれていません。");
 				throw std::runtime_error("FLOOR指定に数字が含まれていません。");
             }
             continue;
@@ -110,7 +112,7 @@ void DungeonMap::ChangeFloor(int floorNum) {
     }
     else
     {
-        std::cerr << "Error: " << floorNum << "階のデータが存在しません。" << std::endl;
+        Text::View::Instance().Error("指定された階層 " + std::to_string(floorNum) + " は存在しません");
     }
 }
 
@@ -121,13 +123,12 @@ void DungeonMap::Render() const {
 	// 現在のマップデータ取得
     const auto& currentGrid = floors.at(currentFloor);
     // 見やすくするためにつけとくよ
-    std::cout << "=== Floor " << currentFloor << " ===" << std::endl;
+    Text::View::Instance().Text("=== Floor " + std::to_string(currentFloor) + " ===", Text::Color::Yellow);
 	// マップ描画
     for (int y = 0; y < height; ++y) {
         for (int x = 0; x < width; ++x) {
             int tile = currentGrid[y][x];
             char symbol = '?';
-
             // タイルはあとで変更する可能性あり
             switch (tile) {
             case 0: symbol = '.'; break;

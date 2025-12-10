@@ -2,7 +2,7 @@
 #include <array>
 #include <windows.h>
 #include "../Singleton/Singleton.hpp"
-#include "KeyCode.h"
+#include "KeyCode.hpp"
 
 // “ü—Íˆ—ŠÖŒW
 class InputManager : public Singleton<InputManager> {
