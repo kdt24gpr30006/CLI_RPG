@@ -34,20 +34,32 @@ namespace Text {
 
 		// エラー表示
 		void Error(const std::string& errorText) {
-			Text("Error: " + errorText, Color::Red);
+			Text("[Error]：" + errorText, Color::Red);
 		}
 
+		// システム
+		void System(const std::string& systemText) {
+			Text("[System]：" + systemText, Color::Green);
+		}
+
+		// 描画実行
 		void Render() {
 			std::cout << "\033[H\033[2J";
-
 			for (const auto& line : buffer) {
 				std::cout << line << std::endl;
 			}
+			Clear();
+		}
 
+		// バッファクリア
+		void Clear() {
 			buffer.clear();
 		}
+
 	private:
 		std::vector<std::string> buffer;
+		std::vector<std::string> lastBuffer;
+		// 色コード取得
 		std::string GetColorCode(Color color) {
 			switch (color) {
 			case Color::Red:    return "\033[31m";
