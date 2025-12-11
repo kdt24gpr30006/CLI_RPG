@@ -4,6 +4,11 @@
 #include "../Singleton/Singleton.hpp"
 #include <iostream>
 
+// メモ
+// coutだといろいろ不都合が出てくる
+// なのでstd::vectorとかでやって、書き換えとか
+// なにかしら入力されたらクリアにして再描画
+// みたいな感じにする
 namespace Text {
 	enum class Color {
 		Red,
@@ -51,6 +56,11 @@ namespace Text {
 		void Error(const std::string& errorText) {
 			// コンソールにエラー出力
 			std::cerr << "\033[31mError: " << errorText << "\033[0m" << std::endl; // 赤色で表示
+		}
+
+		// クリア
+		void Clear() {
+			std::cout << "\033[2J\033[H";
 		}
 	};
 }

@@ -19,6 +19,8 @@ public:
     bool LoadFromCSV(const std::string& filename);
 	// マップ描画
     void Render() const;
+    // 敵の除外用に使う予定
+    void SetTile(int x, int y, int tile);
 	// 指定した座標のタイルを取得
     int GetTile(int x, int y) const;
 
@@ -27,4 +29,5 @@ public:
 
     // 今何階にいるか取得
     int GetCurrentFloor() const { return currentFloor; }
+
 };

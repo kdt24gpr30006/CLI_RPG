@@ -1,26 +1,37 @@
 #include "GameScene.hpp"
 #include <iostream>
 #include "../../System/View/View.hpp"
+#include "../../System/Input/InputManager.hpp"
+#include "MoveState/MoveState.hpp"
 
-GameScene::GameScene() {
+InGame::GameScene::GameScene()
+{
 	Text::View::Instance().Text("GameScene", Text::Color::Green);
 	// マップ読み込み
 	dungeonMap = std::unique_ptr<DungeonMap>(new DungeonMap());
 	// ファイル読み込み
 	dungeonMap->LoadFromCSV("Assets/Data/Mapdata.csv");
+	// シーンの設定
+	ChangeState(std::make_unique<MoveState>());
 }
 
-GameScene::~GameScene() {
-}
-
-void GameScene::Update() {
-}
-
-void GameScene::Render()
+InGame::GameScene::~GameScene()
 {
-	dungeonMap->Render();
-	// キー入力待ち　マップ確認用
-	int a;
-	std::cin >> a;
-	dungeonMap->ChangeFloor(a);
+}
+
+void InGame::GameScene::Update()
+{
+	currentState->Update(*this);
+}
+
+void InGame::GameScene::Render()
+{
+	currentState->Render(*this);
+}
+
+void InGame::GameScene::ChangeState(std::unique_ptr<GameState> newState)
+{
+	currentState = std::move(newState);
+	std::string name = currentState->GetStateName();
+	std::cout << name << std::endl;
 }
