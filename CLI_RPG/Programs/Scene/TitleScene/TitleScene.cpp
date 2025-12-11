@@ -15,7 +15,7 @@ TitleScene::~TitleScene() {
 
 void TitleScene::Update() {
 	if (InputManager::Instance().IsKeyDown(KeyCode::Space)) {
-		SceneManager::Instance().ChangeScene<GameScene>();
+		SceneManager::Instance().ChangeScene<InGame::GameScene>();
 	}
 }
 

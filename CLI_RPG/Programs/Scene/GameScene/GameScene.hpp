@@ -2,25 +2,25 @@
 #include <memory>
 #include "../../System/SceneManager/Scene.hpp"
 #include "../../System/Map/DungeonMap.hpp"		// MAP
+#include "GameState/GameState.hpp"
 
-class GameScene : public Scene {
-public:
-	GameScene();
-	~GameScene();
+namespace InGame {
+	class GameScene : public Scene {
+	public:
+		GameScene();
+		~GameScene();
 
-	void Update() override;
-	void Render() override;
-private:
-	std::unique_ptr<DungeonMap> dungeonMap;
+		void Update() override;
+		void Render() override;
 
-	// いったん仮
-	struct PlayerData {
-		int x = 0;
-		int y = 0;
-		int level = 1;
-		std::string name = "Hero";
-		int hp = 10;
-		int atk = 1;
+		// 状態変更
+		void ChangeState(std::unique_ptr<GameState> newState);
+		// ダンジョンマップ取得
+		DungeonMap* GetDungeonMap() const { return dungeonMap.get(); }
+	private:
+		// 現在の状態
+		std::unique_ptr<GameState> currentState;
+		// ダンジョン
+		std::unique_ptr<DungeonMap> dungeonMap;
 	};
-	std::shared_ptr<PlayerData> player;
-};
+}
