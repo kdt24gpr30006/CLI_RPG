@@ -7,7 +7,7 @@
 
 TitleScene::TitleScene() {
 	Text::View::Instance().Text("TitleScene", Text::Color::Green);
-	std::cout << "スペースを押したらゲームシーンに移行" << std::endl;
+	Text::View::Instance().Text("スペースを押したらゲームシーンに移行");
 }
 
 TitleScene::~TitleScene() {
@@ -20,4 +20,7 @@ void TitleScene::Update() {
 }
 
 void TitleScene::Render() {
+	Text::View::Instance().Text("=== タイトルシーン ===", Text::Color::Yellow);
+	Text::View::Instance().Text("スペースキーを押してゲーム開始", Text::Color::Default);
+	Text::View::Instance().Render();
 }

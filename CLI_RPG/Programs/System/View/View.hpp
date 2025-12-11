@@ -24,43 +24,39 @@ namespace Text {
 
 		// 描画
 		void Text(const std::string& text) {
-			// コンソールに出力
-			std::cout << text << std::endl;
+			buffer.push_back(text);
 		}
 		// 描画（色の指定を追加）
 		void Text(const std::string& text, Color color) {
-			// 色に応じてコンソールの文字色を変更
-			switch (color) {
-			case Color::Red:
-				std::cout << "\033[31m";
-				break;
-			case Color::Green:
-				std::cout << "\033[32m";
-				break;
-			case Color::Blue:
-				std::cout << "\033[34m";
-				break;
-			case Color::Yellow:
-				std::cout << "\033[33m";
-				break;
-			case Color::Default:
-			default:
-				std::cout << "\033[0m";
-				break;
-			}
-			// コンソールに出力
-			std::cout << text << "\033[0m" << std::endl; // 出力後に色をリセット
+			std::string coloredText = GetColorCode(color) + text + GetColorCode(Color::Default);
+			buffer.push_back(coloredText);
 		}
 
 		// エラー表示
 		void Error(const std::string& errorText) {
-			// コンソールにエラー出力
-			std::cerr << "\033[31mError: " << errorText << "\033[0m" << std::endl; // 赤色で表示
+			Text("Error: " + errorText, Color::Red);
 		}
 
-		// クリア
-		void Clear() {
-			std::cout << "\033[2J\033[H";
+		void Render() {
+			std::cout << "\033[H\033[2J";
+
+			for (const auto& line : buffer) {
+				std::cout << line << std::endl;
+			}
+
+			buffer.clear();
+		}
+	private:
+		std::vector<std::string> buffer;
+		std::string GetColorCode(Color color) {
+			switch (color) {
+			case Color::Red:    return "\033[31m";
+			case Color::Green:  return "\033[32m";
+			case Color::Blue:   return "\033[34m";
+			case Color::Yellow: return "\033[33m";
+			case Color::Default:
+			default:            return "\033[0m";
+			}
 		}
 	};
 }
