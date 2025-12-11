@@ -1,8 +1,34 @@
 #include "CharaBase.h"
 #include <algorithm>
 
+int CharaBase::GetAttack()
+{
+	return data.atk;
+}
+
 void CharaBase::TakeDamage(int argDmg)
 {
-	// UŒ‚‚ğH‚ç‚¢0–¢–‚È‚ç0‚É
-	this->data.hp = std::max(this->data.hp - argDmg, 0);
+	data.hp -= argDmg;
+
+	// HP‚ª0ˆÈ‰º‚É‚È‚Á‚½‚ç€–Sˆ—
+	if (data.hp <= 0)
+	{
+		data.hp = 0;
+		Die();
+	}
+}
+
+void CharaBase::Heal(int healHp)
+{
+	data.hp += healHp;
+	// Å‘åHP‚ğ’´‚¦‚È‚¢‚æ‚¤‚É
+	if (data.hp > data.maxhp)
+	{
+		data.hp = data.maxhp;
+	}
+}
+
+bool CharaBase::IsAlive()
+{
+	return data.hp > 0;
 }

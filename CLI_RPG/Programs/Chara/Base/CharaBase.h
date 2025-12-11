@@ -7,27 +7,40 @@
 /// </summary>
 struct CharaData
 {
-	int id;
-	std::string name;
-	int hp;
-	int maxhp;
-	int atk;
-	int def;
+	int id = -1;
+	std::string name = "";
+	int hp = -1;
+	int maxhp = -1;
+	int atk = -1;
+	int def = -1;
 };
 
 class CharaBase
 {
+protected:
+
 	CharaData data;
 
 public:
 
-	CharaBase() {}
-	~CharaBase() {}
+	CharaBase() = default;
+	CharaBase(const CharaData& d) : data(d) {}
+	virtual ~CharaBase() = default;
+
+	/// <summary>
+	/// 攻撃力の取得
+	/// </summary>
+	int GetAttack();
 
 	/// <summary>
 	/// ダメージを受ける
 	/// </summary>
 	void TakeDamage(int argDmg);
+
+	/// <summary>
+	/// 回復
+	/// </summary>
+	void Heal(int healHp);
 
 	/// <summary>
 	/// 生存確認
@@ -36,13 +49,7 @@ public:
 	bool IsAlive();
 
 	/// <summary>
-	/// 攻撃処理
-	/// </summary>
-	void Attack();
-
-	/// <summary>
 	/// やられたとき処理
 	/// </summary>
-	void Die();
-
+	virtual void Die() = 0;
 };
