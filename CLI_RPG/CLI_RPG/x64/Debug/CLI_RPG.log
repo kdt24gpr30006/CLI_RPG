@@ -1,2 +1,5 @@
-﻿  MoveState.cpp
+﻿  GameScene.cpp
+  TitleScene.cpp
+  DungeonMap.cpp
+  コードを生成中...
   CLI_RPG.vcxproj -> C:\Users\com\source\repos\CLI_RPG\CLI_RPG\x64\Debug\CLI_RPG.exe

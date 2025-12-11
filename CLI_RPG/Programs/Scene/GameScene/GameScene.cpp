@@ -6,7 +6,6 @@
 
 InGame::GameScene::GameScene()
 {
-	Text::View::Instance().Text("GameScene", Text::Color::Green);
 	// マップ読み込み
 	dungeonMap = std::unique_ptr<DungeonMap>(new DungeonMap());
 	// ファイル読み込み
@@ -31,7 +30,9 @@ void InGame::GameScene::Render()
 
 void InGame::GameScene::ChangeState(std::unique_ptr<GameState> newState)
 {
+	Text::View::Instance().System("GameScene");
 	currentState = std::move(newState);
 	std::string name = currentState->GetStateName();
-	std::cout << name << std::endl;
+	Text::View::Instance().System(name);
+	Text::View::Instance().Render();
 }

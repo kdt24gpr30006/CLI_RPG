@@ -6,18 +6,21 @@
 #include "../../System/View/View.hpp"
 
 TitleScene::TitleScene() {
-	Text::View::Instance().Text("TitleScene", Text::Color::Green);
-	std::cout << "スペースを押したらゲームシーンに移行" << std::endl;
+	Text::View::Instance().System("TitleScene");
+	Text::View::Instance().Text("スペースキーを押してゲーム開始", Text::Color::Default);
 }
 
 TitleScene::~TitleScene() {
 }
 
 void TitleScene::Update() {
-	if (InputManager::Instance().IsKeyDown(KeyCode::Space)) {
+	bool input = InputManager::Instance().IsKeyDown(KeyCode::Space);
+	if (input)
+	{
 		SceneManager::Instance().ChangeScene<InGame::GameScene>();
 	}
 }
 
 void TitleScene::Render() {
+	Text::View::Instance().Render();
 }
