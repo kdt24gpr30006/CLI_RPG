@@ -7,12 +7,13 @@
 /// </summary>
 struct CharaData
 {
-	int id = -1;
-	std::string name = "";
-	int hp = -1;
-	int maxhp = -1;
-	int atk = -1;
-	int def = -1;
+	int id = 1;
+	std::string name = "none";
+	int hp = 1;
+	int maxhp = 1;
+	int ad = 1;
+	int ap = 1;
+	int def = 1;
 };
 
 class CharaBase
@@ -30,7 +31,7 @@ public:
 	/// <summary>
 	/// UŒ‚—Í‚Ìæ“¾
 	/// </summary>
-	int GetAttack();
+	int GetAttack() const;
 
 	/// <summary>
 	/// ƒ_ƒ[ƒW‚ğó‚¯‚é

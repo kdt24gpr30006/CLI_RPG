@@ -1,9 +1,9 @@
 #include "CharaBase.h"
 #include <algorithm>
 
-int CharaBase::GetAttack()
+int CharaBase::GetAttack() const
 {
-	return data.atk;
+	return data.ad;
 }
 
 void CharaBase::TakeDamage(int argDmg)
