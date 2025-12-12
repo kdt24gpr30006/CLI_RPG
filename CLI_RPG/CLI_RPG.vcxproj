@@ -127,7 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Chara\Base\CharaBase.cpp" />
+    <ClCompile Include="Programs\Chara\Base\CharaBase.cpp" />
     <ClCompile Include="Programs\Scene\GameScene\BattleState\BattleState.cpp" />
     <ClCompile Include="Programs\Scene\GameScene\GameScene.cpp" />
     <ClCompile Include="Programs\Scene\GameScene\MoveState\MoveState.cpp" />
@@ -137,9 +137,9 @@
     <ClCompile Include="Programs\System\SceneManager\SceneManager.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Chara\Base\CharaBase.h" />
-    <ClInclude Include="Chara\Enemy\Enemy.h" />
-    <ClInclude Include="Chara\Player\Player.h" />
+    <ClInclude Include="Programs\Chara\Base\CharaBase.h" />
+    <ClInclude Include="Programs\Chara\Enemy\Enemy.h" />
+    <ClInclude Include="Programs\Chara\Player\Player.h" />
     <ClInclude Include="Programs\Scene\GameScene\BattleState\BattleState.hpp" />
     <ClInclude Include="Programs\Scene\GameScene\GameScene.hpp" />
     <ClInclude Include="Programs\Scene\GameScene\GameState\GameState.hpp" />
