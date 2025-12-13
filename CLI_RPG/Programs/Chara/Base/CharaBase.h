@@ -1,28 +1,28 @@
 #pragma once
 #include <string>
-
+#include "../../Chara/CharaFactory/CharaType.h"
 
 /// <summary>
 /// キャラクターの情報
 /// </summary>
 struct CharaData
 {
-	int id = 1;
 	std::string name = "none";
 	int hp = 1;
 	int maxhp = 1;
 	int ad = 1;
 	int ap = 1;
 	int def = 1;
+	Faction faction = Faction::NONE;
 };
 
 class CharaBase
 {
 protected:
 
-	CharaData data;
 
 public:
+	CharaData data;
 
 	CharaBase() = default;
 	CharaBase(const CharaData& d) : data(d) {}
