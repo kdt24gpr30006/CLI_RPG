@@ -18,17 +18,19 @@ public:
 		}
 	}
 
-	// 押された瞬間
-	bool IsKeyDown(KeyCode k) const {
-		return currKey[(static_cast<uint8_t>(k))];
-	}
 	// 押されている間
-	bool IsKeyPressed(KeyCode k) const {
-		return prevKey[static_cast<uint8_t>(k)] && !currKey[static_cast<uint8_t>(k)];
+	bool IsPress(KeyCode k) const {
+		return currKey[static_cast<uint8_t>(k)];
 	}
-	// 離された瞬間
-	bool IsKeyReleased(KeyCode k) const {
+
+	// 押された瞬間だけ
+	bool IsTrigger(KeyCode k) const {
 		return !prevKey[static_cast<uint8_t>(k)] && currKey[static_cast<uint8_t>(k)];
+	}
+
+	// 離されたとき
+	bool IsRelease(KeyCode k) const {
+		return prevKey[static_cast<uint8_t>(k)] && !currKey[static_cast<uint8_t>(k)];
 	}
 private:
 	// 今回はコンソールなのでキーボード入力のみ対応

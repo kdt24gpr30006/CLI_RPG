@@ -3,15 +3,24 @@
 #include "../../System/View/View.hpp"
 #include "../../System/Input/InputManager.hpp"
 #include "MoveState/MoveState.hpp"
+#include "../../Chara/CharaFactory/CharaFactory.h"
 
 InGame::GameScene::GameScene()
 {
+	Text::View::Instance().System("GameScene");
+	Text::View::Instance().Render();
+	Text::View::Instance().Clear();
 	// マップ読み込み
 	dungeonMap = std::unique_ptr<DungeonMap>(new DungeonMap());
 	// ファイル読み込み
 	dungeonMap->LoadFromCSV("Assets/Data/Mapdata.csv");
+	// プレイヤーキャラクター生成
+	CharaFactory factory = CharaFactory();
+	playerChar = factory.CreateChara(CharaType::YUUSHA);
 	// シーンの設定
 	ChangeState(std::make_unique<MoveState>());
+	// 戦闘描画生成
+	battleRenderer = std::make_unique<BattleRenderer>();
 }
 
 InGame::GameScene::~GameScene()
@@ -30,9 +39,9 @@ void InGame::GameScene::Render()
 
 void InGame::GameScene::ChangeState(std::unique_ptr<GameState> newState)
 {
-	Text::View::Instance().System("GameScene");
 	currentState = std::move(newState);
 	std::string name = currentState->GetStateName();
 	Text::View::Instance().System(name);
 	Text::View::Instance().Render();
+	Text::View::Instance().Clear();
 }

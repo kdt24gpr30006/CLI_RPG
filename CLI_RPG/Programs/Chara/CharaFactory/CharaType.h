@@ -10,7 +10,7 @@ enum class Faction
 
 enum class CharaType
 {
-	YUUSHA,	// 戦士
+	YUUSHA,	// 勇者
 	SLIME,	// スライム
 	GOBLIN,	// ゴブリン
 	DRAGON,	// ドラゴン

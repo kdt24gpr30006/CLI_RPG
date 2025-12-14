@@ -20,9 +20,9 @@ class CharaBase
 {
 protected:
 
+	CharaData data;
 
 public:
-	CharaData data;
 
 	CharaBase() = default;
 	CharaBase(const CharaData& d) : data(d) {}
@@ -53,4 +53,9 @@ public:
 	/// やられたとき処理
 	/// </summary>
 	virtual void Die() = 0;
+
+	/// <summary>
+	/// キャラクターの全部の情報
+	/// </summary>
+	CharaData GetCharaData() const { return data; }
 };

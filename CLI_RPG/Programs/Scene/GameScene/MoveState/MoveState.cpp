@@ -6,11 +6,13 @@
 InGame::MoveState::MoveState()
 {
 	stateName = "Move";
+	Text::View::Instance().Render();
+	Text::View::Instance().Clear();
 }
 
 void InGame::MoveState::Update(GameScene& scene)
 {
-	bool input = InputManager::Instance().IsKeyReleased(KeyCode::Space);
+	bool input = InputManager::Instance().IsTrigger(KeyCode::Space);
 	if (input)
 	{
 		scene.ChangeState(std::make_unique<BattleState>());

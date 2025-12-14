@@ -8,7 +8,7 @@
 // coutだといろいろ不都合が出てくる
 // なのでstd::vectorとかでやって、書き換えとか
 // なにかしら入力されたらクリアにして再描画
-// みたいな感じにする
+// みたいな感じにできたらいいなと思う
 namespace Text {
 	enum class Color {
 		Red,
@@ -26,12 +26,41 @@ namespace Text {
 		void Text(const std::string& text) {
 			buffer.push_back(text);
 		}
+		// 数字用
+		void Text(int number) {
+			buffer.push_back(std::to_string(number));
+		}
 		// 描画（色の指定を追加）
 		void Text(const std::string& text, Color color) {
 			std::string coloredText = GetColorCode(color) + text + GetColorCode(Color::Default);
 			buffer.push_back(coloredText);
 		}
+		void Append(const std::string& text) {
+			if (buffer.empty()) {
+				// バッファが空なら、新しい行として追加
+				buffer.push_back(text);
+			}
+			else {
+				// すでにある最後の行の後ろに結合する
+				buffer.back() += text;
+			}
+		}
+		// 数字を今の行の後ろに追加
+		void Append(int number) {
+			Append(std::to_string(number));
+		}
+		// 色付きで追加
+		void Append(const std::string& text, Color color) {
+			std::string coloredText = GetColorCode(color) + text + GetColorCode(Color::Default);
 
+			if (buffer.empty()) {
+				buffer.push_back(coloredText);
+			}
+			else {
+				// 色コードごと結合すれば、1行の中で部分的に色を変えられます
+				buffer.back() += coloredText;
+			}
+		}
 		// エラー表示
 		void Error(const std::string& errorText) {
 			Text("[Error]：" + errorText, Color::Red);
@@ -48,7 +77,6 @@ namespace Text {
 			for (const auto& line : buffer) {
 				std::cout << line << std::endl;
 			}
-			Clear();
 		}
 
 		// バッファクリア

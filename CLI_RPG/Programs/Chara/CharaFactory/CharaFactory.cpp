@@ -11,8 +11,9 @@ void CharaFactory::InitCharaData()
     yuushaData.ad = 20;
     yuushaData.ap = 10;
     yuushaData.def = 8;
-    yuushaData.faction = Faction::Player; 
-    charaDataMap.insert(std::make_pair(CharaType::YUUSHA, yuushaData));
+    yuushaData.faction = Faction::Player;
+    //    charaDataMap.insert(std::make_pair(CharaType::YUUSHA, yuushaData));
+    charaDataMap.insert({ CharaType::YUUSHA, yuushaData });
 
     // スライムのステータス
     CharaData slimeData;
@@ -23,7 +24,8 @@ void CharaFactory::InitCharaData()
     slimeData.ap = 0;
     slimeData.def = 1;
     slimeData.faction = Faction::Enemy;
-    charaDataMap.insert(std::make_pair(CharaType::SLIME, slimeData));
+    //    charaDataMap.insert(std::make_pair(CharaType::SLIME, slimeData));
+    charaDataMap.insert({ CharaType::SLIME, slimeData });
 
     // ゴブリンのステータス
     CharaData goblinData;
@@ -34,7 +36,8 @@ void CharaFactory::InitCharaData()
     goblinData.ap = 1;
     goblinData.def = 2;
     goblinData.faction = Faction::Enemy;
-    charaDataMap.insert(std::make_pair(CharaType::GOBLIN, goblinData));
+    //    charaDataMap.insert(std::make_pair(CharaType::GOBLIN, goblinData));
+    charaDataMap.insert({ CharaType::GOBLIN, goblinData });
 
     // ドラゴンのステータス
     CharaData dragonData;
@@ -45,7 +48,8 @@ void CharaFactory::InitCharaData()
     dragonData.ap = 20;
     dragonData.def = 15;
     dragonData.faction = Faction::Enemy;
-    charaDataMap.insert(std::make_pair(CharaType::DRAGON, dragonData));
+    //    charaDataMap.insert(std::make_pair(CharaType::DRAGON, dragonData));
+    charaDataMap.insert({ CharaType::DRAGON, dragonData });
 }
 
 std::unique_ptr<CharaBase> CharaFactory::CreateChara(CharaType type) const
