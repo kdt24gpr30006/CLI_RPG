@@ -13,7 +13,7 @@ InGame::MoveState::MoveState(GameScene& scene)
 
 void InGame::MoveState::Update(GameScene& scene)
 {
-	bool input = InputManager::Instance().IsTrigger(KeyCode::Space);
+	bool input = InputManager::Instance().IsTrigger(KeyCode::Enter);
 	if (input)
 	{
 		// Œ»İ‚ÌŠK‘w‚ğæ“¾
