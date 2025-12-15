@@ -5,7 +5,7 @@
 namespace InGame {
     class MoveState : public GameState {
     public:
-		MoveState();
+		MoveState(GameScene& scene);
         void Update(GameScene& scene) override;
         void Render(GameScene& scene) override;
     };

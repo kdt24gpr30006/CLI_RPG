@@ -6,6 +6,11 @@ int CharaBase::GetAttack() const
 	return data.ad;
 }
 
+int CharaBase::GetMagicAttack() const
+{
+	return data.ap;
+}
+
 void CharaBase::TakeDamage(int argDmg)
 {
 	data.hp -= argDmg;

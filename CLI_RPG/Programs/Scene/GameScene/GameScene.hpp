@@ -21,14 +21,14 @@ namespace InGame {
 		DungeonMap* GetDungeonMap() const { return dungeonMap.get(); }
 		// プレイヤーキャラクター取得
 		// 今後追加を考慮してベクターにしておく
-		const std::vector<std::unique_ptr<CharaBase>>& GetPlayerChar() const { return playerChar; }
+		std::vector<std::unique_ptr<CharaBase>>& GetPlayerChar() { return playerChar; }
 		// 敵キャラクターリスト取得
-		const std::vector<std::unique_ptr<CharaBase>>& GetEnemyChars() const { return enemyChars; }
+		std::vector<std::unique_ptr<CharaBase>>& GetEnemyChars() { return enemyChars; }
 
 
 
 		// 敵のリストをクリアする用やけど他に良いやり方あるかな？
-		std::vector<std::unique_ptr<CharaBase>>& GetEnemyCharsRef() { return enemyChars; }
+//		std::vector<std::unique_ptr<CharaBase>>& GetEnemyCharsRef() { return enemyChars; }
 
 
 
