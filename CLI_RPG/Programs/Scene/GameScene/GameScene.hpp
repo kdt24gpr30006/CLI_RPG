@@ -24,6 +24,14 @@ namespace InGame {
 		const std::vector<std::unique_ptr<CharaBase>>& GetPlayerChar() const { return playerChar; }
 		// 敵キャラクターリスト取得
 		const std::vector<std::unique_ptr<CharaBase>>& GetEnemyChars() const { return enemyChars; }
+
+
+
+		// 敵のリストをクリアする用やけど他に良いやり方あるかな？
+		std::vector<std::unique_ptr<CharaBase>>& GetEnemyCharsRef() { return enemyChars; }
+
+
+
 		// 戦闘描画取得
 		BattleRenderer* GetBattleRenderer() const { return battleRenderer.get(); }
 	private:
@@ -39,5 +47,6 @@ namespace InGame {
 		std::vector<std::unique_ptr<CharaBase>> enemyChars;
 		// 戦闘の描画
 		std::unique_ptr<BattleRenderer> battleRenderer;
+
 	};
 }

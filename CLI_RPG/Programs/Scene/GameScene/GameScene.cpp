@@ -15,10 +15,6 @@ InGame::GameScene::GameScene()
 	// プレイヤーキャラクター生成
 	CharaFactory factory = CharaFactory();
 	playerChar.push_back(factory.CreateChara(CharaType::YUUSHA));
-	// 敵キャラクター生成
-	enemyChars.push_back(factory.CreateChara(CharaType::SLIME));
-	enemyChars.push_back(factory.CreateChara(CharaType::GOBLIN));
-	enemyChars.push_back(factory.CreateChara(CharaType::DRAGON));
 	// シーンの設定
 	ChangeState(std::make_unique<MoveState>());
 	// 戦闘描画生成
