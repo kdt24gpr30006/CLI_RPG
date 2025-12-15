@@ -36,7 +36,13 @@
     <ClCompile Include="Programs\Scene\GameScene\MoveState\MoveState.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Chara\Base\CharaBase.cpp">
+    <ClCompile Include="Programs\Chara\Base\CharaBase.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Programs\Chara\CharaFactory\CharaFactory.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Programs\Scene\ResultScene\ResultScene.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
@@ -74,13 +80,22 @@
     <ClInclude Include="Programs\Scene\GameScene\BattleState\BattleState.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Chara\Base\CharaBase.h">
+    <ClInclude Include="Programs\BattleView\BattleView.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Chara\Enemy\Enemy.h">
+    <ClInclude Include="Programs\Chara\Base\CharaBase.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Chara\Player\Player.h">
+    <ClInclude Include="Programs\Chara\Enemy\Enemy.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Programs\Chara\CharaFactory\CharaFactory.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Programs\Chara\Player\Player.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Programs\Scene\ResultScene\ResultScene.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>

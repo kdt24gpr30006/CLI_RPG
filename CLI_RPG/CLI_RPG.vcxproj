@@ -133,6 +133,7 @@
     <ClCompile Include="Programs\Scene\GameScene\BattleState\BattleState.cpp" />
     <ClCompile Include="Programs\Scene\GameScene\GameScene.cpp" />
     <ClCompile Include="Programs\Scene\GameScene\MoveState\MoveState.cpp" />
+    <ClCompile Include="Programs\Scene\ResultScene\ResultScene.cpp" />
     <ClCompile Include="Programs\Scene\TitleScene\TitleScene.cpp" />
     <ClCompile Include="Programs\System\Main\CLI_RPG.cpp" />
     <ClCompile Include="Programs\System\Map\DungeonMap.cpp" />
@@ -148,6 +149,7 @@
     <ClInclude Include="Programs\Scene\GameScene\GameScene.hpp" />
     <ClInclude Include="Programs\Scene\GameScene\GameState\GameState.hpp" />
     <ClInclude Include="Programs\Scene\GameScene\MoveState\MoveState.hpp" />
+    <ClInclude Include="Programs\Scene\ResultScene\ResultScene.hpp" />
     <ClInclude Include="Programs\Scene\TitleScene\TitleScene.hpp" />
     <ClInclude Include="Programs\System\Input\InputManager.hpp" />
     <ClInclude Include="Programs\System\Input\KeyCode.hpp" />

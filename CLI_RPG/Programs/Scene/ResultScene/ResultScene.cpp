@@ -19,7 +19,7 @@ void ResultScene::Update() {
 	bool input = InputManager::Instance().IsTrigger(KeyCode::Space);
 	if (input)
 	{
-		SceneManager::Instance().ChangeScene < TitleScene > ();
+		SceneManager::Instance().ChangeScene<TitleScene>();
 	}
 }
 
