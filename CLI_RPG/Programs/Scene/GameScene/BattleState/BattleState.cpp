@@ -14,8 +14,12 @@ InGame::BattleState::BattleState()
 void InGame::BattleState::Update(GameScene& scene)
 {
 	bool spaceinput = InputManager::Instance().IsTrigger(KeyCode::Space);
+
 	if (spaceinput)
 	{
+		// 戦闘終了時 敵のリストをクリア
+		scene.GetEnemyCharsRef().clear();
+
 		scene.ChangeState(std::make_unique<MoveState>());
 	}
 	bool enterinput = InputManager::Instance().IsTrigger(KeyCode::Enter);
