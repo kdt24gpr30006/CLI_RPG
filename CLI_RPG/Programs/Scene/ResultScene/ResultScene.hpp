@@ -3,7 +3,7 @@
 
 class ResultScene : public Scene {
 public:
-	ResultScene();
+	ResultScene(int floor);
 	~ResultScene();
 
 	void Update() override;

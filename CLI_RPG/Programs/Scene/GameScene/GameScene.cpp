@@ -27,7 +27,11 @@ InGame::GameScene::GameScene()
 	potionData.heel_value = 50;
 
 	// ItemManagerÇí Ç∂ÇƒÉAÉCÉeÉÄÇí«â¡
-	itemManager->AddItem(std::make_unique<Item>(potionData));
+	// Ç∆ÇËÇ†Ç¶Ç∏ÇTå¬Ç‘ÇøçûÇﬁ
+	for (int i = 0; i < 5; i++)
+	{
+		itemManager->AddItem(std::make_unique<Item>(potionData));
+	}
 }
 
 InGame::GameScene::~GameScene()

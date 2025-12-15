@@ -5,10 +5,11 @@
 
 InGame::MoveState::MoveState(GameScene& scene)
 {
+	Text::View::Instance().Clear();
 	stateName = "Move";
 	scene.GetDungeonMap()->Render();
-	//Text::View::Instance().Render();
-	//Text::View::Instance().Clear();
+	Text::View::Instance().Text("ƒGƒ“ƒ^[‚Åí“¬");
+	Text::View::Instance().Render();
 }
 
 void InGame::MoveState::Update(GameScene& scene)

@@ -33,9 +33,19 @@ namespace InGame {
         return nullptr; // Œ©‚Â‚©‚ç‚È‚©‚Á‚½
     }
 
-
     void ItemManager::ClearItems() {
         itemList.clear();
     }
 
+    std::string ItemManager::GetName(int index) const
+    {
+		return itemList.at(index)->data.name;
+    }
+
+    void ItemManager::RemoveItem(int index)
+    {
+        if (index >= 0 && index < itemList.size()) {
+            itemList.erase(itemList.begin() + index);
+        }
+    }
 }

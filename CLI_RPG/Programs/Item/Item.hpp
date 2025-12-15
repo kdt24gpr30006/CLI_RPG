@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include "../Chara/Base/CharaBase.h"
 
 // アイテムデータ構造体
 struct itemdata{
@@ -23,4 +24,6 @@ public:
 
 	}
 
+	// アイテム使用
+	void Use(class CharaBase* target);
 };

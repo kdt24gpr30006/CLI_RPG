@@ -37,6 +37,7 @@ namespace InGame {
 		// 戦闘描画取得
 		BattleRenderer* GetBattleRenderer() const { return battleRenderer.get(); }
 
+		// アイテムマネージャー取得
 		ItemManager* GetItemManager() const { return itemManager.get(); }
 	private:
 

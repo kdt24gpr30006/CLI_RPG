@@ -5,9 +5,13 @@
 #include "../../System/Input/InputManager.hpp"
 #include "../../System/View/View.hpp"
 
-ResultScene::ResultScene() {
+ResultScene::ResultScene(int floor) {
+	Text::View::Instance().Clear();
 	Text::View::Instance().System("ResultScene");
-	Text::View::Instance().Text("スペースキーを押してタイトルへ", Text::Color::Default);
+	int floorCleared = floor - 1;
+	std::string msg = "攻略した階層：" + std::to_string(floorCleared);
+	Text::View::Instance().Text(msg, Text::Color::Yellow);
+	Text::View::Instance().Text("エンターを押してタイトルへ", Text::Color::Default);
 	Text::View::Instance().Render();
 	Text::View::Instance().Clear();
 }
@@ -16,7 +20,7 @@ ResultScene::~ResultScene() {
 }
 
 void ResultScene::Update() {
-	bool input = InputManager::Instance().IsTrigger(KeyCode::Space);
+	bool input = InputManager::Instance().IsTrigger(KeyCode::Enter);
 	if (input)
 	{
 		SceneManager::Instance().ChangeScene<TitleScene>();

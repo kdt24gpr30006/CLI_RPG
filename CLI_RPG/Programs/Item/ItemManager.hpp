@@ -22,6 +22,15 @@ namespace InGame {
         // アイテムリストをクリア
         void ClearItems();
 
+		// アイテム数を取得
+		size_t GetItemCount() const { return itemList.size(); }
+
+        // 名前の取得
+		std::string GetName(int index) const;
+
+		// アイテムをインデックスで削除
+        void RemoveItem(int index);
+
     private:
         std::vector<std::unique_ptr<Item>> itemList;
 
