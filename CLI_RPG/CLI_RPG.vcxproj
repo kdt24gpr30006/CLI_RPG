@@ -104,6 +104,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -128,6 +129,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Programs\Chara\Base\CharaBase.cpp" />
+    <ClCompile Include="Programs\Chara\CharaFactory\CharaFactory.cpp" />
     <ClCompile Include="Programs\Scene\GameScene\BattleState\BattleState.cpp" />
     <ClCompile Include="Programs\Scene\GameScene\GameScene.cpp" />
     <ClCompile Include="Programs\Scene\GameScene\MoveState\MoveState.cpp" />
@@ -137,6 +139,7 @@
     <ClCompile Include="Programs\System\SceneManager\SceneManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Programs\BattleView\BattleView.h" />
     <ClInclude Include="Programs\Chara\Base\CharaBase.h" />
     <ClInclude Include="Programs\Chara\Enemy\Enemy.h" />
     <ClInclude Include="Programs\Chara\CharaFactory\CharaFactory.h" />

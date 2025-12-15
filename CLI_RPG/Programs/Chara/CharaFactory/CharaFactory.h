@@ -5,9 +5,10 @@
 #include "../../Chara/CharaFactory/CharaType.h"
 #include "../../Chara/Enemy/Enemy.h" 
 #include "../../Chara/Player/Player.h"
+#include "../../System/Singleton/Singleton.hpp"
 
-class CharaFactory
-{
+class CharaFactory {
+
 	std::unordered_map<CharaType, CharaData> charaDataMap;
 
 	// ステータス初期化用
