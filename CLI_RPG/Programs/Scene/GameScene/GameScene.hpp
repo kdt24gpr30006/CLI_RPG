@@ -5,6 +5,8 @@
 #include "GameState/GameState.hpp"
 #include "../../Chara/Base/CharaBase.h"
 #include "../../BattleView/BattleView.h"
+#include "../../Item/Item.hpp"
+#include "../../Item/ItemManager.hpp"
 
 namespace InGame {
 	class GameScene : public Scene {
@@ -34,7 +36,12 @@ namespace InGame {
 
 		// 戦闘描画取得
 		BattleRenderer* GetBattleRenderer() const { return battleRenderer.get(); }
+
+		ItemManager* GetItemManager() const { return itemManager.get(); }
 	private:
+
+		
+
 		// 現在の状態
 		std::unique_ptr<GameState> currentState;
 		// ダンジョン
@@ -45,6 +52,9 @@ namespace InGame {
 		// もともとBattleStateでしてたけど、シーンで一括管理したほうが良さそう
 		// あとでCharaManager敵なのを作って全体の管理をゲームシーンに持たせる
 		std::vector<std::unique_ptr<CharaBase>> enemyChars;
+
+		std::unique_ptr<ItemManager> itemManager;
+
 		// 戦闘の描画
 		std::unique_ptr<BattleRenderer> battleRenderer;
 

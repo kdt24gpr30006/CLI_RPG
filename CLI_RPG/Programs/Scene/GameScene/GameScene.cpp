@@ -19,6 +19,15 @@ InGame::GameScene::GameScene()
 	ChangeState(std::make_unique<MoveState>());
 	// 戦闘描画生成
 	battleRenderer = std::make_unique<BattleRenderer>();
+	// アイテムマネージャー生成
+	itemManager = std::make_unique<ItemManager>();
+
+	itemdata potionData;
+	potionData.name = "Potion";
+	potionData.heel_value = 50;
+
+	// ItemManagerを通じてアイテムを追加
+	itemManager->AddItem(std::make_unique<Item>(potionData));
 }
 
 InGame::GameScene::~GameScene()
