@@ -20,9 +20,10 @@ namespace InGame {
 		// ダンジョンマップ取得
 		DungeonMap* GetDungeonMap() const { return dungeonMap.get(); }
 		// プレイヤーキャラクター取得
-		CharaBase* GetPlayerChar() const { return playerChar.get(); }
-//		// 敵キャラクターリスト取得
-//		const std::vector<std::unique_ptr<CharaBase>>& GetEnemyChars() const { return enemyChars; }
+		// 今後追加を考慮してベクターにしておく
+		const std::vector<std::unique_ptr<CharaBase>>& GetPlayerChar() const { return playerChar; }
+		// 敵キャラクターリスト取得
+		const std::vector<std::unique_ptr<CharaBase>>& GetEnemyChars() const { return enemyChars; }
 		// 戦闘描画取得
 		BattleRenderer* GetBattleRenderer() const { return battleRenderer.get(); }
 	private:
@@ -31,7 +32,11 @@ namespace InGame {
 		// ダンジョン
 		std::unique_ptr<DungeonMap> dungeonMap;
 		// プレイヤーキャラクター
-		std::unique_ptr<CharaBase> playerChar;
+		std::vector<std::unique_ptr<CharaBase>> playerChar;
+		// 敵キャラクターリスト
+		// もともとBattleStateでしてたけど、シーンで一括管理したほうが良さそう
+		// あとでCharaManager敵なのを作って全体の管理をゲームシーンに持たせる
+		std::vector<std::unique_ptr<CharaBase>> enemyChars;
 		// 戦闘の描画
 		std::unique_ptr<BattleRenderer> battleRenderer;
 	};

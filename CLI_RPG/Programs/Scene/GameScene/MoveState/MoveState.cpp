@@ -6,8 +6,8 @@
 InGame::MoveState::MoveState()
 {
 	stateName = "Move";
-	Text::View::Instance().Render();
-	Text::View::Instance().Clear();
+	//Text::View::Instance().Render();
+	//Text::View::Instance().Clear();
 }
 
 void InGame::MoveState::Update(GameScene& scene)

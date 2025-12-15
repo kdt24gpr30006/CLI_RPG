@@ -6,13 +6,9 @@
 InGame::BattleState::BattleState()
 {
 	stateName = "Battle";
-	Text::View::Instance().Render();
-	Text::View::Instance().Clear();
-	CharaFactory factory = CharaFactory();
-	// 敵キャラクター生成
-	enemyChars.push_back(factory.CreateChara(CharaType::SLIME));
-	enemyChars.push_back(factory.CreateChara(CharaType::GOBLIN));
-	enemyChars.push_back(factory.CreateChara(CharaType::DRAGON));
+	//Text::View::Instance().Render();
+	//Text::View::Instance().Clear();
+
 }
 
 void InGame::BattleState::Update(GameScene& scene)
@@ -25,12 +21,24 @@ void InGame::BattleState::Update(GameScene& scene)
 	bool enterinput = InputManager::Instance().IsTrigger(KeyCode::Enter);
 	if (enterinput)
 	{
-		scene.GetBattleRenderer()->RenderState(scene.GetPlayerChar()->GetCharaData());
+		// ゲームの作成
+		// コマンド選択画面の作成と入力待機を作成する
+		// 最初はプレイヤーとエネミーのステータス表示する
+		auto& player = scene.GetPlayerChar();
+		for (auto& p : player) {
+			scene.GetBattleRenderer()->RenderState(p->GetCharaData());
+		}
+		// エネミーのステータス表示
+		auto& enemy = scene.GetEnemyChars();
+		for (auto& e : enemy) {
+			scene.GetBattleRenderer()->RenderState(e->GetCharaData());
+		}
+		Text::View::Instance().Render();
 	}
+
 }
 
 void InGame::BattleState::Render(GameScene& scene)
 {
-	Text::View::Instance().Render();
-	Text::View::Instance().Clear();
+
 }
