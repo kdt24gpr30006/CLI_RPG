@@ -34,6 +34,11 @@ public:
 	int GetAttack() const;
 
 	/// <summary>
+	/// 魔法攻撃力の取得
+	/// </summary>
+	int GetMagicAttack() const;
+
+	/// <summary>
 	/// ダメージを受ける
 	/// </summary>
 	void TakeDamage(int argDmg);

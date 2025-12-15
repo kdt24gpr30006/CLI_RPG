@@ -12,12 +12,12 @@ void InGame::BattleState::UpdateSelection(GameScene& scene)
 	}
 	// 魔法
 	else if (InputManager::Instance().IsTrigger(KeyCode::Num2)) {
-		AddMessage("魔法を唱えた！...しかし何も起きなかった。");
-		CurrentPhase(BattlePhase::EnemyTurn);
+		AddMessage("プレイヤーの魔法攻撃！");
+		CurrentPhase(BattlePhase::PlayerMagic);
 	}
 	// アイテム
 	else if (InputManager::Instance().IsTrigger(KeyCode::Num3)) {
-		AddMessage("アイテムを使った！...しかし何も持っていない。");
+		AddMessage("アイテム実装途中");
 		CurrentPhase(BattlePhase::EnemyTurn);
 	}
 }
@@ -40,6 +40,36 @@ void InGame::BattleState::UpdatePlayerAttack(GameScene& scene)
 
 		// ログ更新
 		AddMessage(enemy->GetCharaData().name + " に " + std::to_string(damage) + " のダメージ！");
+
+		// 敵の生存確認
+		if (!enemy->IsAlive()) {
+			AddMessage("\n" + enemy->GetCharaData().name + " を倒した！(Win)");
+			phase = BattlePhase::Victory; // 勝利フェーズへ
+		}
+		else {
+			// 敵が生きていれば、次は敵のターン
+			phase = BattlePhase::EnemyTurn;
+		}
+	}
+}
+
+void InGame::BattleState::UpdatePlayerMagic(GameScene& scene)
+{
+	if (InputManager::Instance().IsTrigger(KeyCode::Enter)) {
+		auto& players = scene.GetPlayerChar();
+		auto& enemies = scene.GetEnemyChars();
+
+		if (players.empty() || enemies.empty()) return;
+
+		auto player = players[0].get();
+		auto enemy = enemies[0].get();
+
+		// ダメージを与える
+		int damage = player->GetMagicAttack();
+		enemy->TakeDamage(damage);
+
+		// ログ更新
+		AddMessage(enemy->GetCharaData().name + " に " + std::to_string(damage) + " の魔法ダメージ！");
 
 		// 敵の生存確認
 		if (!enemy->IsAlive()) {
@@ -94,47 +124,18 @@ InGame::BattleState::BattleState(GameScene& scene)
 	CurrentPhase(BattlePhase::SelectCommand);
 	//Text::View::Instance().Render();
 	//Text::View::Instance().Clear();
-
 }
 
 void InGame::BattleState::Update(GameScene& scene)
 {
-	//bool spaceinput = InputManager::Instance().IsTrigger(KeyCode::Space);
-
-	//if (spaceinput)
-	//{
-	//	// 戦闘終了時 敵のリストをクリア
-	//	scene.GetEnemyChars().clear();
-	//	// 移動状態へ変更
-	//	scene.ChangeState(std::make_unique<MoveState>(scene));
-	//	// 階層を進める
-	//	scene.GetDungeonMap()->AdvanceFloor();
-	//	Text::View::Instance().Render();
-	//	Text::View::Instance().Clear();
-	//}
-	//bool enterinput = InputManager::Instance().IsTrigger(KeyCode::Enter);
-	//if (enterinput)
-	//{
-	//	// ゲームの作成
-	//	// コマンド選択画面の作成と入力待機を作成する
-	//	// 最初はプレイヤーとエネミーのステータス表示する
-	//	auto& player = scene.GetPlayerChar();
-	//	for (auto& p : player) {
-	//		scene.GetBattleRenderer()->RenderState(p->GetCharaData());
-	//	}
-	//	Text::View::Instance().Line();
-	//	// エネミーのステータス表示
-	//	auto& enemy = scene.GetEnemyChars();
-	//	for (auto& e : enemy) {
-	//		scene.GetBattleRenderer()->RenderState(e->GetCharaData());
-	//	}
-	//	Text::View::Instance().Render();
-	//}
 	switch (phase) {
 	case BattlePhase::SelectCommand:
 		UpdateSelection(scene);
 		break;
 	case BattlePhase::PlayerAttack:
+		UpdatePlayerAttack(scene);
+		break;
+	case BattlePhase::PlayerMagic:
 		UpdatePlayerAttack(scene);
 		break;
 	case BattlePhase::EnemyTurn:
@@ -154,9 +155,9 @@ void InGame::BattleState::Update(GameScene& scene)
 		}
 		break;
 	case BattlePhase::Defeat:
-		// ゲームオーバー処理 (とりあえずEnterで終了など)
+		// ゲームオーバー処理
 		if (InputManager::Instance().IsTrigger(KeyCode::Enter)) {
-			exit(0); // 仮：強制終了
+			exit(0);
 		}
 		break;
 	}
