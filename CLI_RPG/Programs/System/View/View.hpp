@@ -35,6 +35,9 @@ namespace Text {
 			std::string coloredText = GetColorCode(color) + text + GetColorCode(Color::Default);
 			buffer.push_back(coloredText);
 		}
+		void Line() {
+			buffer.push_back("----------------------------------");
+		}
 		void Append(const std::string& text) {
 			if (buffer.empty()) {
 				// バッファが空なら、新しい行として追加

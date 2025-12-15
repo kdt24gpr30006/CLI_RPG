@@ -6,28 +6,34 @@
 class DungeonMap {
 private:
 	// ŠeŠK‘w‚Ìƒ}ƒbƒvƒf[ƒ^‚ÌŠi”[
-    std::map<int, std::vector<std::vector<int>>> floors;
+//    std::map<int, std::vector<std::vector<int>>> floors;
 
     int currentFloor = 1; // Œ»İ‚ÌŠK‘w
     int width = 0;        // Œ»İ‚ÌŠK‘w‚Ì•
     int height = 0;       // Œ»İ‚ÌŠK‘w‚Ì‚‚³
+	const int MaxFloors = 10;  // Å‘åŠK‘w”
 
 public:
     DungeonMap();
 
 	// CSVƒtƒ@ƒCƒ‹‚©‚çƒ}ƒbƒvƒf[ƒ^‚ğ“Ç‚İ‚ŞŠÖ”
-    bool LoadFromCSV(const std::string& filename);
+    //bool LoadFromCSV(const std::string& filename);
 	// ƒ}ƒbƒv•`‰æ
-    void Render() const;
+    //void Render() const;
     // “G‚ÌœŠO—p‚Ég‚¤—\’è
-    void SetTile(int x, int y, int tile);
+    //void SetTile(int x, int y, int tile);
 	// w’è‚µ‚½À•W‚Ìƒ^ƒCƒ‹‚ğæ“¾
-    int GetTile(int x, int y) const;
+    //int GetTile(int x, int y) const;
 
     // ŠK‘w‚ğØ‚è‘Ö‚¦‚éŠÖ”
-    void ChangeFloor(int floorNum);
+    //void ChangeFloor(int floorNum);
 
     // ¡‰½ŠK‚É‚¢‚é‚©æ“¾
     int GetCurrentFloor() const { return currentFloor; }
 
+    // ŠK‘w‚ği‚ß‚é
+    void AdvanceFloor();
+
+    // •`‰æ
+    void Render() const;
 };

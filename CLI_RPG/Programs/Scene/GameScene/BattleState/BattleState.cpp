@@ -3,9 +3,10 @@
 #include "../../../System/Input/InputManager.hpp"
 #include "../../../Chara/CharaFactory/CharaFactory.h"
 
-InGame::BattleState::BattleState()
+InGame::BattleState::BattleState(GameScene& scene)
 {
 	stateName = "Battle";
+	scene.GetDungeonMap()->Render();
 	//Text::View::Instance().Render();
 	//Text::View::Instance().Clear();
 
@@ -18,9 +19,12 @@ void InGame::BattleState::Update(GameScene& scene)
 	if (spaceinput)
 	{
 		// 戦闘終了時 敵のリストをクリア
-		scene.GetEnemyCharsRef().clear();
+		scene.GetEnemyChars().clear();
 
-		scene.ChangeState(std::make_unique<MoveState>());
+		scene.ChangeState(std::make_unique<MoveState>(scene));
+		scene.GetDungeonMap()->AdvanceFloor();
+		Text::View::Instance().Render();
+		Text::View::Instance().Clear();
 	}
 	bool enterinput = InputManager::Instance().IsTrigger(KeyCode::Enter);
 	if (enterinput)
@@ -32,6 +36,7 @@ void InGame::BattleState::Update(GameScene& scene)
 		for (auto& p : player) {
 			scene.GetBattleRenderer()->RenderState(p->GetCharaData());
 		}
+		Text::View::Instance().Line();
 		// エネミーのステータス表示
 		auto& enemy = scene.GetEnemyChars();
 		for (auto& e : enemy) {

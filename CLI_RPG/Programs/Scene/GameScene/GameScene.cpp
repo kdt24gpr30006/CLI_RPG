@@ -11,12 +11,12 @@ InGame::GameScene::GameScene()
 	// マップ読み込み
 	dungeonMap = std::unique_ptr<DungeonMap>(new DungeonMap());
 	// ファイル読み込み
-	dungeonMap->LoadFromCSV("Assets/Data/Mapdata.csv");
+//	dungeonMap->LoadFromCSV("Assets/Data/Mapdata.csv");
 	// プレイヤーキャラクター生成
 	CharaFactory factory = CharaFactory();
 	playerChar.push_back(factory.CreateChara(CharaType::YUUSHA));
 	// シーンの設定
-	ChangeState(std::make_unique<MoveState>());
+	ChangeState(std::make_unique<MoveState>(*this));
 	// 戦闘描画生成
 	battleRenderer = std::make_unique<BattleRenderer>();
 }
