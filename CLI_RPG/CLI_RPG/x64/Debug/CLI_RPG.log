@@ -1,10 +1,4 @@
-﻿  BattleState.cpp
-C:\Users\com\source\repos\CLI_RPG\CLI_RPG\Programs\Scene\GameScene\BattleState\BattleState.cpp(102,12): warning C4267: '初期化中': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
-C:\Users\com\source\repos\CLI_RPG\CLI_RPG\Programs\Scene\GameScene\BattleState\BattleState.cpp(249,13): warning C4267: '初期化中': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
-  GameScene.cpp
-  MoveState.cpp
-  ResultScene.cpp
-  TitleScene.cpp
-  DungeonMap.cpp
-  コードを生成中...
+﻿  MoveState.cpp
+C:\Users\com\source\repos\CLI_RPG\CLI_RPG\Programs\Scene\GameScene\MoveState\MoveState.cpp(67,13): warning C4267: '初期化中': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
+C:\Users\com\source\repos\CLI_RPG\CLI_RPG\Programs\Scene\GameScene\MoveState\MoveState.cpp(110,12): warning C4267: '初期化中': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
   CLI_RPG.vcxproj -> C:\Users\com\source\repos\CLI_RPG\CLI_RPG\x64\Debug\CLI_RPG.exe

@@ -4,6 +4,7 @@ C:\Users\com\source\repos\CLI_RPG\CLI_RPG\Programs\Item\Item.cpp;C:\Users\com\so
 C:\Users\com\source\repos\CLI_RPG\CLI_RPG\Programs\Item\ItemManager.cpp;C:\Users\com\source\repos\CLI_RPG\CLI_RPG\CLI_RPG\x64\Debug\ItemManager.obj
 C:\Users\com\source\repos\CLI_RPG\CLI_RPG\Programs\Scene\GameScene\BattleState\BattleState.cpp;C:\Users\com\source\repos\CLI_RPG\CLI_RPG\CLI_RPG\x64\Debug\BattleState.obj
 C:\Users\com\source\repos\CLI_RPG\CLI_RPG\Programs\Scene\GameScene\GameScene.cpp;C:\Users\com\source\repos\CLI_RPG\CLI_RPG\CLI_RPG\x64\Debug\GameScene.obj
+C:\Users\com\source\repos\CLI_RPG\CLI_RPG\Programs\Scene\GameScene\GameState\GameState.cpp;C:\Users\com\source\repos\CLI_RPG\CLI_RPG\CLI_RPG\x64\Debug\GameState.obj
 C:\Users\com\source\repos\CLI_RPG\CLI_RPG\Programs\Scene\GameScene\MoveState\MoveState.cpp;C:\Users\com\source\repos\CLI_RPG\CLI_RPG\CLI_RPG\x64\Debug\MoveState.obj
 C:\Users\com\source\repos\CLI_RPG\CLI_RPG\Programs\Scene\ResultScene\ResultScene.cpp;C:\Users\com\source\repos\CLI_RPG\CLI_RPG\CLI_RPG\x64\Debug\ResultScene.obj
 C:\Users\com\source\repos\CLI_RPG\CLI_RPG\Programs\Scene\TitleScene\TitleScene.cpp;C:\Users\com\source\repos\CLI_RPG\CLI_RPG\CLI_RPG\x64\Debug\TitleScene.obj
