@@ -76,10 +76,14 @@ namespace Text {
 
 		// 描画実行
 		void Render() {
+			// 画面のちらつき直す
+			if (buffer == lastBuffer) return;
+
 			std::cout << "\033[H\033[2J";
 			for (const auto& line : buffer) {
 				std::cout << line << std::endl;
 			}
+			lastBuffer = buffer;
 		}
 
 		// バッファクリア
