@@ -1,5 +1,8 @@
 C:\Users\com\source\repos\CLI_RPG\CLI_RPG\Programs\Chara\Base\CharaBase.cpp;C:\Users\com\source\repos\CLI_RPG\CLI_RPG\CLI_RPG\x64\Debug\CharaBase.obj
 C:\Users\com\source\repos\CLI_RPG\CLI_RPG\Programs\Chara\CharaFactory\CharaFactory.cpp;C:\Users\com\source\repos\CLI_RPG\CLI_RPG\CLI_RPG\x64\Debug\CharaFactory.obj
+C:\Users\com\source\repos\CLI_RPG\CLI_RPG\Programs\Chara\Skill\AttackSkill\AttackSkill.cpp;C:\Users\com\source\repos\CLI_RPG\CLI_RPG\CLI_RPG\x64\Debug\AttackSkill.obj
+C:\Users\com\source\repos\CLI_RPG\CLI_RPG\Programs\Chara\Skill\AttackSkill\ShadowBall\ShadowBall.cpp;C:\Users\com\source\repos\CLI_RPG\CLI_RPG\CLI_RPG\x64\Debug\ShadowBall.obj
+C:\Users\com\source\repos\CLI_RPG\CLI_RPG\Programs\Chara\Skill\Skill.cpp;C:\Users\com\source\repos\CLI_RPG\CLI_RPG\CLI_RPG\x64\Debug\Skill.obj
 C:\Users\com\source\repos\CLI_RPG\CLI_RPG\Programs\Item\Item.cpp;C:\Users\com\source\repos\CLI_RPG\CLI_RPG\CLI_RPG\x64\Debug\Item.obj
 C:\Users\com\source\repos\CLI_RPG\CLI_RPG\Programs\Item\ItemManager.cpp;C:\Users\com\source\repos\CLI_RPG\CLI_RPG\CLI_RPG\x64\Debug\ItemManager.obj
 C:\Users\com\source\repos\CLI_RPG\CLI_RPG\Programs\Scene\GameScene\BattleState\BattleState.cpp;C:\Users\com\source\repos\CLI_RPG\CLI_RPG\CLI_RPG\x64\Debug\BattleState.obj

@@ -1,16 +1,4 @@
-﻿  Item.cpp
-  ItemManager.cpp
-  BattleState.cpp
-C:\Users\com\source\repos\CLI_RPG\CLI_RPG\Programs\Scene\GameScene\BattleState\BattleState.cpp(102,12): warning C4267: '初期化中': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
-C:\Users\com\source\repos\CLI_RPG\CLI_RPG\Programs\Scene\GameScene\BattleState\BattleState.cpp(247,13): warning C4267: '初期化中': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
-  GameScene.cpp
-  GameState.cpp
-  MoveState.cpp
-C:\Users\com\source\repos\CLI_RPG\CLI_RPG\Programs\Scene\GameScene\MoveState\MoveState.cpp(76,13): warning C4267: '初期化中': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
-C:\Users\com\source\repos\CLI_RPG\CLI_RPG\Programs\Scene\GameScene\MoveState\MoveState.cpp(119,12): warning C4267: '初期化中': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
-  ResultScene.cpp
-  TitleScene.cpp
-  DungeonMap.cpp
+﻿  AttackSkill.cpp
+  ShadowBall.cpp
   コードを生成中...
-  LINK : 前回のインクリメンタル リンクで C:\Users\com\source\repos\CLI_RPG\CLI_RPG\x64\Debug\CLI_RPG.exe が見つからなかったか、ビルドされませんでした。フル リンクを行います。
-CharaFactory.obj : fatal error LNK1103: デバッグ情報が壊れています。モジュールを再コンパイルしてください。
+  CLI_RPG.vcxproj -> C:\Users\com\source\repos\CLI_RPG\CLI_RPG\x64\Debug\CLI_RPG.exe
