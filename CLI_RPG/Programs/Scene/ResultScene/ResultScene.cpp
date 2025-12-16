@@ -5,11 +5,13 @@
 #include "../../System/Input/InputManager.hpp"
 #include "../../System/View/View.hpp"
 
+//　ResultScene クラスのコンストラクタ
 ResultScene::ResultScene(int floor) {
+	//　画面表示をクリア
 	Text::View::Instance().Clear();
 	Text::View::Instance().System("ResultScene");
-	int floorCleared = floor - 1;
-	std::string msg = "攻略した階層：" + std::to_string(floorCleared);
+	//　クリアした階層
+	std::string msg = "攻略した階層：" + std::to_string(floor);
 	Text::View::Instance().Text(msg, Text::Color::Yellow);
 	Text::View::Instance().Text("エンターを押してタイトルへ", Text::Color::Default);
 	Text::View::Instance().Render();

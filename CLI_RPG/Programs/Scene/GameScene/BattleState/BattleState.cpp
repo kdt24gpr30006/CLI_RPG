@@ -179,12 +179,19 @@ void InGame::BattleState::Update(GameScene& scene)
 			isSceneChanging = true;
 			// 敵リストクリア
 			scene.GetEnemyChars().clear();
-			// 階層を進める
-			scene.GetDungeonMap()->AdvanceFloor();
-			// 移動ステートへ
-			scene.ChangeState(std::make_unique<MoveState>(scene));
-
+			
+			if (scene.GetDungeonMap()->GetMaxFloors() == scene.GetDungeonMap()->GetCurrentFloor())
+			{
+				SceneManager::Instance().ChangeScene<ResultScene>(scene.GetDungeonMap()->GetCurrentFloor());
+			}
+			else {
+				// 階層を進める
+				scene.GetDungeonMap()->AdvanceFloor();
+				// 移動ステートへ
+				scene.ChangeState(std::make_unique<MoveState>(scene));
+			}
 			Text::View::Instance().Clear();
+
 		}
 		break;
 	case BattlePhase::Defeat:
@@ -193,11 +200,10 @@ void InGame::BattleState::Update(GameScene& scene)
 		if (InputManager::Instance().IsTrigger(KeyCode::Enter)) {
 			isSceneChanging = true;
 			// ゲームオーバー処理
-			SceneManager::Instance().ChangeScene<ResultScene>(scene.GetDungeonMap()->GetCurrentFloor());
+			SceneManager::Instance().ChangeScene<ResultScene>(scene.GetDungeonMap()->GetCurrentFloor() - 1);
 		}
 		break;
 	}
-
 }
 
 void InGame::BattleState::Render(GameScene& scene)
