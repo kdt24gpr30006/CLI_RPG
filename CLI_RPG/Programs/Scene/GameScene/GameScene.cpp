@@ -3,7 +3,10 @@
 #include "../../System/View/View.hpp"
 #include "../../System/Input/InputManager.hpp"
 #include "MoveState/MoveState.hpp"
-#include "../../Chara/CharaFactory/CharaFactory.h"
+#include "../../Chara/CharaFactory/CharaFactory.hpp"
+#include "../../Chara/Skill/Skill.h"
+#include "../../Chara/skill/AttackSkill/ShadowBall/ShadowBall.hpp"
+#include "../../Chara/skill/AttackSkill/AttackSkill.hpp"
 
 InGame::GameScene::GameScene()
 {
@@ -15,6 +18,10 @@ InGame::GameScene::GameScene()
 	// プレイヤーキャラクター生成
 	CharaFactory factory = CharaFactory();
 	playerChar.push_back(factory.CreateChara(CharaType::YUUSHA));
+
+	// スキル(シャドウボール)追加
+	playerChar[0]->AddSkill(std::make_unique<ShadowBall>());
+
 	// シーンの設定
 	ChangeState(std::make_unique<MoveState>(*this));
 	// 戦闘描画生成

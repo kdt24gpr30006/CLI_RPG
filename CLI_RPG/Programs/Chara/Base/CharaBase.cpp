@@ -11,6 +11,12 @@ int CharaBase::GetMagicAttack() const
 	return data.ap;
 }
 
+void CharaBase::ReduceMp(int costMp)
+{
+	// MP‚ðŒ¸‚ç‚·
+	data.mp -= costMp;
+}
+
 void CharaBase::TakeDamage(int argDmg)
 {
 	data.hp -= argDmg;
@@ -33,7 +39,7 @@ void CharaBase::Heal(int healHp)
 	}
 }
 
-bool CharaBase::IsAlive()
+bool CharaBase::IsAlive() const
 {
 	return data.hp > 0;
 }

@@ -11,5 +11,7 @@ public:
         Text::View::Instance().Append(state.name);
         Text::View::Instance().Text("HpÅF");
         Text::View::Instance().Append(state.hp);
+        Text::View::Instance().Text("MpÅF");
+        Text::View::Instance().Append(state.mp);
     }
 };

@@ -1,7 +1,7 @@
 #include "BattleState.hpp"
 #include "../MoveState/MoveState.hpp"
 #include "../../../System/Input/InputManager.hpp"
-#include "../../../Chara/CharaFactory/CharaFactory.h"
+#include "../../../Chara/CharaFactory/CharaFactory.hpp"
 #include "../../../Scene/ResultScene/ResultScene.hpp"
 #include "../../../System/SceneManager/SceneManager.hpp"
 
@@ -61,17 +61,28 @@ void InGame::BattleState::UpdatePlayerAttack(GameScene& scene)
 
 void InGame::BattleState::UpdatePlayerMagic(GameScene& scene)
 {
-	if (InputManager::Instance().IsTrigger(KeyCode::Enter)) {
+	if (InputManager::Instance().IsTrigger(KeyCode::Enter))
+	{
 		auto& players = scene.GetPlayerChar();
 		auto& enemies = scene.GetEnemyChars();
 		if (players.empty() || enemies.empty()) return;
 		auto player = players[0].get();
 		auto enemy = enemies[0].get();
-		// ダメージを与える
-		int damage = player->GetMagicAttack();
-		enemy->TakeDamage(damage);
+
+		// MP足りるか
+		if (player->skill->CanUseSkill(player->GetCharaData().mp) == false)
+		{
+			AddMessage("MPが足りない！");
+			CurrentPhase(BattlePhase::SelectCommand);
+			return;
+		}
+
+		std::string skillName = player->skill->GetName();
+		int value = player->UseSkill(*enemy);
+
 		// ログ更新
-		AddMessage(enemy->GetCharaData().name + " に " + std::to_string(damage) + " の魔法ダメージ！");
+		AddMessage(skillName + " を使用！");
+		AddMessage(enemy->GetCharaData().name + " に " + std::to_string(value) + " の魔法ダメージ！");
 		// 敵の生存確認
 		if (!enemy->IsAlive()) {
 			AddMessage("\n" + enemy->GetCharaData().name + " を倒した！(Win)");
@@ -99,7 +110,7 @@ void InGame::BattleState::UpdatePlayerItem(GameScene& scene)
 	if (players.empty()) return;
 	auto player = players[0].get();
 
-	int count = itemManager->GetItemCount();
+	int count = static_cast<int>(itemManager->GetItemCount());
 
 	for (int i = 0; i < count; ++i) {
 		if (i >= itemList.size()) break;
@@ -244,7 +255,7 @@ void InGame::BattleState::Render(GameScene& scene)
 
 		auto itemManager = scene.GetItemManager();
 		const auto& list = itemManager->GetItemList();
-		int count = itemManager->GetItemCount();
+		int count = static_cast<int>(itemManager->GetItemCount());
 
 		for (int i = 0; i < count; ++i) {
 			std::string line = "[" + std::to_string(i + 1) + "] " + list[i]->data.name;
