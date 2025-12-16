@@ -8,6 +8,8 @@ namespace InGame {
 
     class ItemManager {
     public:
+
+		// コンストラクタとデストラクタ
         ItemManager();
         ~ItemManager();
 

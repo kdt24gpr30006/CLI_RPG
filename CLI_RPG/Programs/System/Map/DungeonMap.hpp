@@ -15,6 +15,9 @@ private:
 
 public:
     DungeonMap();
+    ~DungeonMap(){}
+
+    const int GetMaxFloors() { return MaxFloors; }
 
 	// CSVファイルからマップデータを読み込む関数
     //bool LoadFromCSV(const std::string& filename);
