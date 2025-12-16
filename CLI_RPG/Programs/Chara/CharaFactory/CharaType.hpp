@@ -13,5 +13,6 @@ enum class CharaType
 	YUUSHA,	// 勇者
 	SLIME,	// スライム
 	GOBLIN,	// ゴブリン
+	GOLEM,  // ゴーレム
 	DRAGON,	// ドラゴン
 };

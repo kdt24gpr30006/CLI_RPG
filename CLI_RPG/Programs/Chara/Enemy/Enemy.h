@@ -6,7 +6,7 @@ class Enemy : public CharaBase
 public:
     Enemy(const CharaData& d) : CharaBase(d) {}
 
-    void Die() override 
+    void Die()
     {
         int a = 0;
     }

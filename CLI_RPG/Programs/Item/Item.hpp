@@ -14,8 +14,6 @@ struct itemdata{
 //　アイテムクラス
 class Item {
 
-	
-
 public:
 
 	itemdata data;

@@ -3,10 +3,12 @@
 
 class Player : public CharaBase
 {
-public:
-    Player(const CharaData& d) : CharaBase(d) {}
 
-    void Die() override 
+public:
+
+    Player(const CharaData& d):CharaBase(d){}
+
+    void Die()
     {
         int a = 0;
     }

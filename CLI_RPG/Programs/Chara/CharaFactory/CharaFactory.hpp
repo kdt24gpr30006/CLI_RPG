@@ -2,7 +2,7 @@
 #include <unordered_map>
 #include <memory>
 #include "../../Chara/Base/CharaBase.h"
-#include "../../Chara/CharaFactory/CharaType.h"
+#include "../../Chara/CharaFactory/CharaType.hpp"
 #include "../../Chara/Enemy/Enemy.h" 
 #include "../../Chara/Player/Player.h"
 #include "../../System/Singleton/Singleton.hpp"

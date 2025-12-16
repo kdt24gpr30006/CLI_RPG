@@ -2,8 +2,8 @@
 #include <vector>
 #include <memory>
 #include "../../Chara/Base/CharaBase.h"
-#include "../../Chara/CharaFactory/CharaFactory.h"
-#include "../../Chara/CharaFactory/CharaType.h"
+#include "../../Chara/CharaFactory/CharaFactory.hpp"
+#include "../../Chara/CharaFactory/CharaType.hpp"
 
 class EnemySpawner
 {
@@ -32,7 +32,7 @@ public:
 			enemies = factory.CreateChara(CharaType::SLIME);
 			break;
 		case 4:
-			enemies = factory.CreateChara(CharaType::SLIME);
+			enemies = factory.CreateChara(CharaType::GOBLIN);
 			break;
 		case 5:
 			enemies = factory.CreateChara(CharaType::GOBLIN);
@@ -41,13 +41,13 @@ public:
 			enemies = factory.CreateChara(CharaType::GOBLIN);
 			break;
 		case 7:
-			enemies = factory.CreateChara(CharaType::GOBLIN);
+			enemies = factory.CreateChara(CharaType::GOLEM);
 			break;
 		case 8:
-			enemies = factory.CreateChara(CharaType::DRAGON);
+			enemies = factory.CreateChara(CharaType::GOLEM);
 			break;
 		case 9:
-			enemies = factory.CreateChara(CharaType::DRAGON);
+			enemies = factory.CreateChara(CharaType::GOLEM);
 			break;
 		case 10:
 			enemies = factory.CreateChara(CharaType::DRAGON);
