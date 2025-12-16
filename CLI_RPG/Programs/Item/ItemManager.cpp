@@ -2,6 +2,10 @@
 #include <iostream>
 #include <algorithm> 
 #include "../Item/Item.hpp"
+#include "../Scene/GameScene/GameScene.hpp"
+#include "../System/Input/InputManager.hpp"
+
+
 namespace InGame {
 
     ItemManager::ItemManager() {

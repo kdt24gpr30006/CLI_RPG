@@ -134,6 +134,7 @@
     <ClCompile Include="Programs\Item\ItemManager.cpp" />
     <ClCompile Include="Programs\Scene\GameScene\BattleState\BattleState.cpp" />
     <ClCompile Include="Programs\Scene\GameScene\GameScene.cpp" />
+    <ClCompile Include="Programs\Scene\GameScene\GameState\GameState.cpp" />
     <ClCompile Include="Programs\Scene\GameScene\MoveState\MoveState.cpp" />
     <ClCompile Include="Programs\Scene\ResultScene\ResultScene.cpp" />
     <ClCompile Include="Programs\Scene\TitleScene\TitleScene.cpp" />

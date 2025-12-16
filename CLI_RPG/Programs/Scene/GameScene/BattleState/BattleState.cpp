@@ -146,14 +146,6 @@ void InGame::BattleState::UpdateEnemyTurn(GameScene& scene)
 	}
 }
 
-void InGame::BattleState::AddMessage(const std::string& msg)
-{
-	if (!message.empty()) {
-		message += "\n";
-	}
-	message += msg;
-}
-
 InGame::BattleState::BattleState(GameScene& scene)
 {
 	stateName = "Battle";
