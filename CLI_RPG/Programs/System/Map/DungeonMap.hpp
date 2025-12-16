@@ -16,6 +16,7 @@ private:
 public:
     DungeonMap();
 
+
 	// CSVファイルからマップデータを読み込む関数
     //bool LoadFromCSV(const std::string& filename);
 	// マップ描画
@@ -27,6 +28,8 @@ public:
 
     // 階層を切り替える関数
     //void ChangeFloor(int floorNum);
+
+    const int GetMaxFloors() { return MaxFloors; }
 
     // 今何階にいるか取得
     int GetCurrentFloor() const { return currentFloor; }
