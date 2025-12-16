@@ -13,6 +13,15 @@ InGame::MoveState::MoveState(GameScene& scene)
 void InGame::MoveState::Update(GameScene& scene)
 {
 	bool input = InputManager::Instance().IsTrigger(KeyCode::Enter);
+	// プレイヤーのステータス表示
+	auto& players = scene.GetPlayerChar();
+	Text::View::Instance().System("=== PLAYER ===");
+	for (auto& p : players) {
+		scene.GetBattleRenderer()->RenderState(p->GetCharaData());
+	}
+	Text::View::Instance().Text(""); // 改行
+	Text::View::Instance().Line();
+
 	switch (phase) {
 	case MovePhase::Exploring:
 		scene.GetDungeonMap()->Render();
